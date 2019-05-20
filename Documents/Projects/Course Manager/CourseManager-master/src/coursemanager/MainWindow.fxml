@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursemanager.MainWindowController">
+   <center>
+      <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab closable="false" text="Alumnos">
+               <content>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="799.0" spacing="10.0" styleClass="hBoxTab">
+                     <children>
+                        <VBox alignment="CENTER" spacing="5.0" styleClass="vBoxList">
+                           <children>
+                              <ListView fx:id="listAlumno" minWidth="160.0" prefWidth="240.0" styleClass="listView" VBox.vgrow="ALWAYS" />
+                              <Button fx:id="anadeAlumnoButton" mnemonicParsing="false" onAction="#handleOnActionAnadeAlumnoButton" styleClass="addButton" text="Añadir alumno" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </VBox>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="noStudentSelectedLabel" alignment="CENTER" contentDisplay="TEXT_ONLY" disable="true" text="Seleccione a un alumno para ver sus detalles." textAlignment="CENTER" />
+                              <HBox fx:id="studentDetails" alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="10.0" StackPane.alignment="CENTER">
+                                 <children>
+                                    <GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="320.0" styleClass="detailTable" HBox.hgrow="ALWAYS">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label styleClass="detailLabel" text="DNI:" GridPane.halignment="RIGHT" />
+                                          <Label styleClass="detailLabel" text="Nombre:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                          <Label styleClass="detailLabel" text="Edad:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                          <Label styleClass="detailLabel" text="Dirección:" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                          <Label styleClass="detailLabel" text="Fecha de alta:" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                                          <Button fx:id="removeStudentButton" mnemonicParsing="false" onAction="#handleOnActionBorraButton" styleClass="removeButton" text="Borrar alumno" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                                          <Label fx:id="studentDniLabel" GridPane.columnIndex="1" />
+                                          <Label fx:id="studentNameLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="studentAgeLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="studentAddressLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label fx:id="studentRegistrationDateLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                       </children>
+                                    </GridPane>
+                                    <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
+                                       <image>
+                                          <Image url="@../images/no_photo.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </HBox>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Cursos">
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="hBoxTab">
+                     <children>
+                        <VBox alignment="CENTER" spacing="5.0" styleClass="vBoxList">
+                           <children>
+                              <ListView fx:id="listCurso" minWidth="160.0" prefWidth="240.0" styleClass="listView" VBox.vgrow="ALWAYS" />
+                              <Button fx:id="anadeCursoButton" mnemonicParsing="false" onAction="#handleOnActionAddCourseButton" styleClass="addButton" text="Añadir curso" />
+                           </children>
+                        </VBox>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="noCourseSelectedLabel" alignment="CENTER" contentDisplay="TEXT_ONLY" disable="true" text="Seleccione un curso para ver sus detalles." textAlignment="CENTER" />
+                              <GridPane fx:id="courseDetails" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="500.0" styleClass="detailTable">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="237.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="243.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="NEVER" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="28.0" vgrow="ALWAYS" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label styleClass="detailLabel" text="Título:" textAlignment="RIGHT" GridPane.halignment="RIGHT" />
+                                    <Label styleClass="detailLabel" text="Profesor:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                    <Label styleClass="detailLabel" text="Alumnos matriculados:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                    <Label styleClass="detailLabel" text="Fecha de inicio:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                    <Label styleClass="detailLabel" text="Fecha de fin:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                                    <Label styleClass="detailLabel" text="Días de semana:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                                    <Label styleClass="detailLabel" text="Aula:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                                    <Label styleClass="detailLabel" text="Hora:" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                                    <Label fx:id="courseTitleLabel" GridPane.columnIndex="1" />
+                                    <Label fx:id="courseProfessorLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="courseNumEnrollmentsLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label fx:id="courseStartDateLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label fx:id="courseEndDateLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label fx:id="courseTimeLabel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label fx:id="courseWeekdaysLabel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Label fx:id="courseClassroomLabel" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <Button fx:id="manageEnrollmentsButton" mnemonicParsing="false" onAction="#handleManageEnrollmentsAction" text="Gestionar matrículas" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                    <Button fx:id="removeCourseButton" mnemonicParsing="false" onAction="#handleRemoveCourseAction" styleClass="removeButton" text="Borrar curso" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+                                    <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </HBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSaveAction" text="Guardar" />
+        </items>
+      </ToolBar>
+   </top>
+</BorderPane>

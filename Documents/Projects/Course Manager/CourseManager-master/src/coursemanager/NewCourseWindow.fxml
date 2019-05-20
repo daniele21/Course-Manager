@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<TitledPane collapsible="false" text="Nuevo curso" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursemanager.NewCourseWindowController">
+   <content>
+      <GridPane hgap="8.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" vgap="4.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="237.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="398.0" minWidth="10.0" prefWidth="243.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="0.0" minHeight="28.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="0.0" minHeight="28.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="0.0" minHeight="28.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="0.0" minHeight="28.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="0.0" minHeight="28.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="0.0" minHeight="28.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="0.0" minHeight="28.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="0.0" minHeight="28.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="36.0" minHeight="2.0" prefHeight="21.0" vgrow="NEVER" />
+          <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="39.0" vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <Label text="Título:" textAlignment="RIGHT" GridPane.halignment="RIGHT" />
+            <Label text="Profesor:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label text="Número máximo de alumnos:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label text="Fecha de inicio:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Label text="Fecha de fin:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Label text="Días de semana:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+            <Label text="Aula:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <TextField fx:id="titleText" GridPane.columnIndex="1" />
+            <TextField fx:id="professorText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="maxStudentsText" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <DatePicker fx:id="startDate" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+            <DatePicker fx:id="endDate" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+            <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <Spinner fx:id="hourSpinner" prefWidth="60.0" />
+                  <Label text=":" />
+                  <Spinner fx:id="minuteSpinner" prefWidth="60.0" />
+               </children>
+            </FlowPane>
+            <FlowPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                    <ToggleButton fx:id="dayMon" text="L" />
+                    <ToggleButton fx:id="dayTue" text="M" />
+                    <ToggleButton fx:id="dayWed" text="X" />
+                  <ToggleButton fx:id="dayThu" mnemonicParsing="false" text="J" />
+                  <ToggleButton fx:id="dayFri" mnemonicParsing="false" text="V" />
+                  <ToggleButton fx:id="daySat" mnemonicParsing="false" text="S" />
+                  <ToggleButton fx:id="daySun" mnemonicParsing="false" text="D" />
+               </children>
+            </FlowPane>
+            <TextField fx:id="classroomText" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#handleAddCourseAction" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleBackAction" text="Cerrar" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+            <Label text="Hora:" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+   </content>
+</TitledPane>
